@@ -37,7 +37,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.onvvjnmng-design.adplatform-android-sdk:ad-sdk:v1.0.4'
+    implementation 'com.github.onvvjnmng-design:adplatform-android-sdk:v1.0.12'
 }
 ```
 
@@ -49,6 +49,22 @@ dependencies {
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
+
+---
+
+## الإعلانات التجريبية (Test Ads)
+
+استخدم هذه المعرفات أثناء التطوير لاختبار الإعلانات:
+
+| النوع | Test Ad Unit ID |
+|-------|-----------------|
+| **SDK Key** | `test-sdk-key-adnova-000` |
+| Banner | `test-banner-adnova-000` |
+| Interstitial | `test-interstitial-adnova-000` |
+| Rewarded | `test-rewarded-adnova-000` |
+| Native | `test-native-adnova-000` |
+
+> ⚠️ **تنبيه:** استبدل Test IDs بمعرفات حقيقية من لوحة التحكم قبل نشر تطبيقك!
 
 ---
 
