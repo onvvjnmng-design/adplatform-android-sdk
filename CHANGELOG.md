@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## [1.0.15] - 2026-02-10
+
+### Fixed
+- Fixed backend API integration compatibility
+- Support both `type` and `ad_type` field names
+- Support both `click_url` and `target_url` field names  
+- Support both `cta_text` and `call_to_action` field names
+- Support `reward_type`/`reward_amount` as separate fields
+- Made `id` dynamic to support both Long (production) and String (test ads)
+- Made `impression_id` String type to match backend UUID format
+
 ## [1.0.0] - 2026-02-09
 
 ### Added

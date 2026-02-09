@@ -75,7 +75,7 @@ class AdApiClient(private val sdkKey: String) {
     /**
      * Track ad click
      */
-    suspend fun trackClick(adId: Long, impressionId: Long): Result<Boolean> {
+    suspend fun trackClick(adId: Any, impressionId: String?): Result<Boolean> {
         return withContext(Dispatchers.IO) {
             try {
                 val request = ClickRequest(

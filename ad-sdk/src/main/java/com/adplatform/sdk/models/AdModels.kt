@@ -7,10 +7,10 @@ import com.google.gson.annotations.SerializedName
  */
 data class Ad(
     @SerializedName("id")
-    val id: Long,
+    val id: Any, // Can be Long (production) or String (test ads)
     
     @SerializedName("campaign_id")
-    val campaignId: Long,
+    val campaignId: Long? = 0,
     
     @SerializedName("title")
     val title: String,
@@ -21,18 +21,33 @@ data class Ad(
     @SerializedName("image_url")
     val imageUrl: String,
     
-    @SerializedName("target_url")
+    @SerializedName(value = "click_url", alternate = ["target_url"])
     val targetUrl: String,
     
-    @SerializedName("call_to_action")
+    @SerializedName(value = "cta_text", alternate = ["call_to_action"])
     val callToAction: String?,
     
-    @SerializedName("ad_type")
+    @SerializedName(value = "type", alternate = ["ad_type"])
     val adType: String,
     
     @SerializedName("impression_id")
-    val impressionId: Long?
-)
+    val impressionId: String?, // Changed to String to support UUID
+    
+    @SerializedName("reward_amount")
+    val rewardAmount: Int? = null,
+    
+    @SerializedName("reward_type")
+    val rewardType: String? = null,
+    
+    @SerializedName("is_test")
+    val isTest: Boolean? = false
+) {
+    fun getReward(): Reward? {
+        return if (rewardAmount != null && rewardType != null) {
+            Reward(rewardAmount, rewardType)
+        } else null
+    }
+}
 
 /**
  * Ad request body
@@ -99,10 +114,10 @@ data class ClickRequest(
     val sdkKey: String,
     
     @SerializedName("ad_id")
-    val adId: Long,
+    val adId: Any, // Can be Long or String
     
     @SerializedName("impression_id")
-    val impressionId: Long
+    val impressionId: String?
 )
 
 /**
