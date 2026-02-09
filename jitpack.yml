@@ -2,9 +2,7 @@
   - openjdk17
 before_install:
   - wget -q https://services.gradle.org/distributions/gradle-8.2-bin.zip -O /tmp/gradle.zip
-  - unzip -q /tmp/gradle.zip -d /opt
-  - export GRADLE_HOME=/opt/gradle-8.2
-  - export PATH=$GRADLE_HOME/bin:$PATH
+  - unzip -q /tmp/gradle.zip -d $HOME
 install:
-  - /opt/gradle-8.2/bin/gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
+  - $HOME/gradle-8.2/bin/gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
 
