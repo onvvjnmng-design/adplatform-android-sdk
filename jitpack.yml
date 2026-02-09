@@ -2,8 +2,7 @@
   - openjdk17
 before_install:
   - sdk install gradle 8.4
-  - sdk use gradle 8.4  
-  - export JAVA_HOME=$HOME/.sdkman/candidates/java/current
+  - sdk use gradle 8.4
 install:
-  - gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal --no-daemon -Dorg.gradle.java.home=$JAVA_HOME
+  - gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal --no-daemon
 
