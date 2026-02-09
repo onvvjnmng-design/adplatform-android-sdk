@@ -392,8 +392,8 @@ nativeAdLoader.loadAd(new NativeAdListener() {
 
 ## الدعم
 
-- الموقع: [adnova.com](https://adnova.com)
-- البريد: support@adnova.com
+- الموقع: [adnova.bbs.tr](https://adnova.bbs.tr)
+- البريد: support@adnova.bbs.tr
 
 ## الترخيص
 

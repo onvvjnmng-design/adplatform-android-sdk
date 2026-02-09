@@ -28,7 +28,7 @@ object AdNova {
     internal var isInitialized = false
         private set
     
-    internal var baseUrl = "http://10.0.2.2:3000" // Default for emulator, change for production
+    internal var baseUrl = "https://adnova.bbs.tr" // Production URL
         private set
     
     /**
