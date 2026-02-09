@@ -1,8 +1,10 @@
 ﻿jdk:
   - openjdk17
 before_install:
-  - curl -sL -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/nicoulaj/gradle-wrapper/main/gradle-wrapper.jar || wget -q -O gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/nicoulaj/gradle-wrapper/main/gradle-wrapper.jar
-  - chmod +x gradlew
+  - wget -q https://services.gradle.org/distributions/gradle-8.2-bin.zip -O /tmp/gradle.zip
+  - unzip -q /tmp/gradle.zip -d /opt
+  - export GRADLE_HOME=/opt/gradle-8.2
+  - export PATH=$GRADLE_HOME/bin:$PATH
 install:
-  - ./gradlew :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
+  - /opt/gradle-8.2/bin/gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
 
