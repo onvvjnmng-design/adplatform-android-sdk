@@ -1,8 +1,9 @@
 ﻿jdk:
-  - openjdk17
+  - openjdk11
 before_install:
-  - wget -q https://services.gradle.org/distributions/gradle-8.2-bin.zip -O /tmp/gradle.zip
+  - wget -q https://services.gradle.org/distributions/gradle-7.6.3-bin.zip -O /tmp/gradle.zip
   - unzip -q /tmp/gradle.zip -d $HOME
+  - export PATH=$HOME/gradle-7.6.3/bin:$PATH
 install:
-  - $HOME/gradle-8.2/bin/gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
+  - $HOME/gradle-7.6.3/bin/gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
 
