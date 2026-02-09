@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 ## [1.0.0] - 2026-02-09
 
@@ -20,3 +20,4 @@
 - Test mode for development
 - Comprehensive error handling
 - Coroutines support for async operations
+

@@ -1,4 +1,4 @@
-package com.adplatform.sdk.models
+﻿package com.AdNova.sdk.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -115,3 +115,4 @@ data class Reward(
     @SerializedName("type")
     val type: String
 )
+

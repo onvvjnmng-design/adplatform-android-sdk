@@ -1,11 +1,11 @@
-plugins {
+﻿plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
 
 android {
-    namespace 'com.adplatform.sdk'
+    namespace 'com.AdNova.sdk'
     compileSdk 34
 
     defaultConfig {
@@ -62,10 +62,11 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 
-                groupId = 'com.github.adplatform'
+                groupId = 'com.github.AdNova'
                 artifactId = 'ad-sdk'
                 version = '1.0.0'
             }
         }
     }
 }
+

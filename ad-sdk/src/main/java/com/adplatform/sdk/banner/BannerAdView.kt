@@ -1,4 +1,4 @@
-package com.adplatform.sdk.banner
+﻿package com.AdNova.sdk.banner
 
 import android.content.Context
 import android.content.Intent
@@ -11,11 +11,11 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import coil.load
-import com.adplatform.sdk.AdPlatform
-import com.adplatform.sdk.R
-import com.adplatform.sdk.listeners.AdListener
-import com.adplatform.sdk.models.Ad
-import com.adplatform.sdk.models.DeviceInfo
+import com.AdNova.sdk.AdNova
+import com.AdNova.sdk.R
+import com.AdNova.sdk.listeners.AdListener
+import com.AdNova.sdk.models.Ad
+import com.AdNova.sdk.models.DeviceInfo
 import kotlinx.coroutines.*
 
 /**
@@ -23,7 +23,7 @@ import kotlinx.coroutines.*
  * 
  * Add to your layout:
  * ```xml
- * <com.adplatform.sdk.banner.BannerAdView
+ * <com.AdNova.sdk.banner.BannerAdView
  *     android:id="@+id/bannerAd"
  *     android:layout_width="match_parent"
  *     android:layout_height="wrap_content" />
@@ -106,7 +106,7 @@ class BannerAdView @JvmOverloads constructor(
      * Load a banner ad
      */
     fun loadAd() {
-        AdPlatform.ensureInitialized()
+        AdNova.ensureInitialized()
         
         if (isLoading) {
             Log.w(TAG, "Ad is already loading")
@@ -118,7 +118,7 @@ class BannerAdView @JvmOverloads constructor(
         scope.launch {
             try {
                 val deviceInfo = getDeviceInfo()
-                val result = AdPlatform.apiClient?.requestAd("banner", deviceInfo)
+                val result = AdNova.apiClient?.requestAd("banner", deviceInfo)
                 
                 result?.fold(
                     onSuccess = { ad ->
@@ -165,7 +165,7 @@ class BannerAdView @JvmOverloads constructor(
         // Track click
         scope.launch {
             ad.impressionId?.let { impressionId ->
-                AdPlatform.apiClient?.trackClick(ad.id, impressionId)
+                AdNova.apiClient?.trackClick(ad.id, impressionId)
             }
         }
         
@@ -211,3 +211,4 @@ class BannerAdView @JvmOverloads constructor(
         destroy()
     }
 }
+

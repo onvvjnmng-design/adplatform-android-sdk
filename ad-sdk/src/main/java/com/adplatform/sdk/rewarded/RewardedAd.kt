@@ -1,4 +1,4 @@
-package com.adplatform.sdk.rewarded
+﻿package com.AdNova.sdk.rewarded
 
 import android.app.Activity
 import android.app.Dialog
@@ -16,11 +16,11 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import coil.load
-import com.adplatform.sdk.AdPlatform
-import com.adplatform.sdk.R
-import com.adplatform.sdk.listeners.RewardedAdListener
-import com.adplatform.sdk.models.Ad
-import com.adplatform.sdk.models.DeviceInfo
+import com.AdNova.sdk.AdNova
+import com.AdNova.sdk.R
+import com.AdNova.sdk.listeners.RewardedAdListener
+import com.AdNova.sdk.models.Ad
+import com.AdNova.sdk.models.DeviceInfo
 import kotlinx.coroutines.*
 
 /**
@@ -90,7 +90,7 @@ class RewardedAd(private val activity: Activity) {
      * Load a rewarded ad
      */
     fun loadAd() {
-        AdPlatform.ensureInitialized()
+        AdNova.ensureInitialized()
         
         if (isLoading) {
             Log.w(TAG, "Ad is already loading")
@@ -104,7 +104,7 @@ class RewardedAd(private val activity: Activity) {
         scope.launch {
             try {
                 val deviceInfo = getDeviceInfo()
-                val result = AdPlatform.apiClient?.requestAd("rewarded", deviceInfo)
+                val result = AdNova.apiClient?.requestAd("rewarded", deviceInfo)
                 
                 result?.fold(
                     onSuccess = { ad ->
@@ -240,7 +240,7 @@ class RewardedAd(private val activity: Activity) {
         // Track click
         scope.launch {
             ad.impressionId?.let { impressionId ->
-                AdPlatform.apiClient?.trackClick(ad.id, impressionId)
+                AdNova.apiClient?.trackClick(ad.id, impressionId)
             }
         }
         
@@ -272,3 +272,4 @@ class RewardedAd(private val activity: Activity) {
         isLoaded = false
     }
 }
+

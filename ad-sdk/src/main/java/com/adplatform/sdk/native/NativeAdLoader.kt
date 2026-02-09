@@ -1,13 +1,13 @@
-package com.adplatform.sdk.native
+﻿package com.AdNova.sdk.native
 
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
-import com.adplatform.sdk.AdPlatform
-import com.adplatform.sdk.listeners.NativeAdListener
-import com.adplatform.sdk.models.Ad
-import com.adplatform.sdk.models.DeviceInfo
+import com.AdNova.sdk.AdNova
+import com.AdNova.sdk.listeners.NativeAdListener
+import com.AdNova.sdk.models.Ad
+import com.AdNova.sdk.models.DeviceInfo
 import kotlinx.coroutines.*
 
 /**
@@ -56,7 +56,7 @@ class NativeAdLoader(private val activity: Activity) {
      * @param listener Callback for ad events
      */
     fun loadAd(listener: NativeAdListener) {
-        AdPlatform.ensureInitialized()
+        AdNova.ensureInitialized()
         
         if (isLoading) {
             Log.w(TAG, "Ad is already loading")
@@ -68,7 +68,7 @@ class NativeAdLoader(private val activity: Activity) {
         scope.launch {
             try {
                 val deviceInfo = getDeviceInfo()
-                val result = AdPlatform.apiClient?.requestAd("native", deviceInfo)
+                val result = AdNova.apiClient?.requestAd("native", deviceInfo)
                 
                 result?.fold(
                     onSuccess = { ad ->
@@ -107,7 +107,7 @@ class NativeAdLoader(private val activity: Activity) {
         // Track click
         scope.launch {
             ad.impressionId?.let { impressionId ->
-                AdPlatform.apiClient?.trackClick(ad.id, impressionId)
+                AdNova.apiClient?.trackClick(ad.id, impressionId)
             }
         }
         
@@ -136,3 +136,4 @@ class NativeAdLoader(private val activity: Activity) {
         isLoading = false
     }
 }
+

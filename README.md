@@ -1,4 +1,4 @@
-# AdPlatform Android SDK
+﻿# AdNova Android SDK
 
 مكتبة إعلانات لتطبيقات Android - تدعم Java و Kotlin
 
@@ -35,7 +35,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.adplatform:ad-sdk:1.0.0'
+    implementation 'com.github.onvvjnmng-design:adplatform-android-sdk:v1.0.0'
 }
 ```
 
@@ -57,7 +57,7 @@ dependencies {
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        AdPlatform.initialize(this, "YOUR_SDK_KEY")
+        AdNova.initialize(this, "YOUR_SDK_KEY")
     }
 }
 ```
@@ -68,7 +68,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        AdPlatform.initialize(this, "YOUR_SDK_KEY");
+        AdNova.initialize(this, "YOUR_SDK_KEY");
     }
 }
 ```
@@ -102,3 +102,4 @@ rewardedAd.show()
 ## الترخيص
 
 MIT License
+

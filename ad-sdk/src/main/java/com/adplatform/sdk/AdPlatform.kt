@@ -1,20 +1,20 @@
-package com.adplatform.sdk
+﻿package com.AdNova.sdk
 
 import android.content.Context
 import android.util.Log
-import com.adplatform.sdk.network.AdApiClient
+import com.AdNova.sdk.network.AdApiClient
 import java.lang.ref.WeakReference
 
 /**
- * AdPlatform SDK - Main entry point
+ * AdNova SDK - Main entry point
  * 
  * Initialize this SDK in your Application class:
  * ```kotlin
- * AdPlatform.initialize(this, "YOUR_SDK_KEY")
+ * AdNova.initialize(this, "YOUR_SDK_KEY")
  * ```
  */
-object AdPlatform {
-    private const val TAG = "AdPlatform"
+object AdNova {
+    private const val TAG = "AdNova"
     
     internal var sdkKey: String? = null
         private set
@@ -32,14 +32,14 @@ object AdPlatform {
         private set
     
     /**
-     * Initialize the AdPlatform SDK
+     * Initialize the AdNova SDK
      * @param context Application context
-     * @param sdkKey Your SDK key from the AdPlatform dashboard
+     * @param sdkKey Your SDK key from the AdNova dashboard
      */
     @JvmStatic
     fun initialize(context: Context, sdkKey: String) {
         if (isInitialized) {
-            Log.w(TAG, "AdPlatform SDK already initialized")
+            Log.w(TAG, "AdNova SDK already initialized")
             return
         }
         
@@ -52,12 +52,12 @@ object AdPlatform {
         this.apiClient = AdApiClient(sdkKey)
         this.isInitialized = true
         
-        Log.i(TAG, "AdPlatform SDK initialized successfully")
+        Log.i(TAG, "AdNova SDK initialized successfully")
     }
     
     /**
      * Set custom base URL for the API (for testing or custom deployments)
-     * @param url The base URL (e.g., "https://api.adplatform.com")
+     * @param url The base URL (e.g., "https://api.AdNova.com")
      */
     @JvmStatic
     fun setBaseUrl(url: String) {
@@ -87,7 +87,8 @@ object AdPlatform {
      */
     internal fun ensureInitialized() {
         if (!isInitialized) {
-            throw IllegalStateException("AdPlatform SDK not initialized. Call AdPlatform.initialize() first.")
+            throw IllegalStateException("AdNova SDK not initialized. Call AdNova.initialize() first.")
         }
     }
 }
+

@@ -1,7 +1,7 @@
-package com.adplatform.sdk.network
+﻿package com.AdNova.sdk.network
 
-import com.adplatform.sdk.AdPlatform
-import com.adplatform.sdk.models.*
+import com.AdNova.sdk.AdNova
+import com.AdNova.sdk.models.*
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -12,14 +12,14 @@ import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 /**
- * API client for AdPlatform server communication
+ * API client for AdNova server communication
  */
 class AdApiClient(private val sdkKey: String) {
     
     private val gson = Gson()
     private val jsonMediaType = "application/json; charset=utf-8".toMediaType()
     
-    private var baseUrl = AdPlatform.baseUrl
+    private var baseUrl = AdNova.baseUrl
     
     private val client = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
@@ -105,3 +105,4 @@ class AdApiClient(private val sdkKey: String) {
         }
     }
 }
+

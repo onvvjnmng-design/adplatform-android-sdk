@@ -1,6 +1,6 @@
-package com.adplatform.sdk.listeners
+﻿package com.AdNova.sdk.listeners
 
-import com.adplatform.sdk.models.Ad
+import com.AdNova.sdk.models.Ad
 
 /**
  * Listener for ad events
@@ -61,3 +61,4 @@ interface NativeAdListener {
      */
     fun onAdFailed(error: String)
 }
+

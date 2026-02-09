@@ -1,4 +1,4 @@
-package com.adplatform.sdk.interstitial
+﻿package com.AdNova.sdk.interstitial
 
 import android.app.Activity
 import android.app.Dialog
@@ -16,11 +16,11 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import coil.load
-import com.adplatform.sdk.AdPlatform
-import com.adplatform.sdk.R
-import com.adplatform.sdk.listeners.AdListener
-import com.adplatform.sdk.models.Ad
-import com.adplatform.sdk.models.DeviceInfo
+import com.AdNova.sdk.AdNova
+import com.AdNova.sdk.R
+import com.AdNova.sdk.listeners.AdListener
+import com.AdNova.sdk.models.Ad
+import com.AdNova.sdk.models.DeviceInfo
 import kotlinx.coroutines.*
 
 /**
@@ -78,7 +78,7 @@ class InterstitialAd(private val activity: Activity) {
      * Load an interstitial ad
      */
     fun loadAd() {
-        AdPlatform.ensureInitialized()
+        AdNova.ensureInitialized()
         
         if (isLoading) {
             Log.w(TAG, "Ad is already loading")
@@ -91,7 +91,7 @@ class InterstitialAd(private val activity: Activity) {
         scope.launch {
             try {
                 val deviceInfo = getDeviceInfo()
-                val result = AdPlatform.apiClient?.requestAd("interstitial", deviceInfo)
+                val result = AdNova.apiClient?.requestAd("interstitial", deviceInfo)
                 
                 result?.fold(
                     onSuccess = { ad ->
@@ -192,7 +192,7 @@ class InterstitialAd(private val activity: Activity) {
         // Track click
         scope.launch {
             ad.impressionId?.let { impressionId ->
-                AdPlatform.apiClient?.trackClick(ad.id, impressionId)
+                AdNova.apiClient?.trackClick(ad.id, impressionId)
             }
         }
         
@@ -229,3 +229,4 @@ class InterstitialAd(private val activity: Activity) {
         isLoaded = false
     }
 }
+
