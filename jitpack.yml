@@ -1,5 +1,8 @@
 ﻿jdk:
   - openjdk17
+before_install:
+  - sdk install gradle 8.2
+  - sdk use gradle 8.2
 install:
   - gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
 
