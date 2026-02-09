@@ -35,7 +35,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.onvvjnmng-design:adplatform-android-sdk:v1.0.0'
+    implementation 'com.github.onvvjnmng-design:adplatform-android-sdk:v1.0.1'
 }
 ```
 
