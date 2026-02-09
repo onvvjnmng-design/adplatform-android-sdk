@@ -1,8 +1,8 @@
 ﻿jdk:
   - openjdk17
 before_install:
-  - sdk install gradle 8.4
-  - sdk use gradle 8.4
+  - curl -sL -o gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/nicoulaj/gradle-wrapper/main/gradle-wrapper.jar || wget -q -O gradle/wrapper/gradle-wrapper.jar https://raw.githubusercontent.com/nicoulaj/gradle-wrapper/main/gradle-wrapper.jar
+  - chmod +x gradlew
 install:
-  - gradle :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal --no-daemon
+  - ./gradlew :ad-sdk:assembleRelease :ad-sdk:publishToMavenLocal
 
